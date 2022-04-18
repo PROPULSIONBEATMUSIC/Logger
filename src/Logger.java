@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class Logger {
+    File file = new File("src/Logs/tag.log");
+    FileWriter writer = new FileWriter(file);
     String tag;
 
     public enum Type{
@@ -13,22 +15,12 @@ public class Logger {
         ERROR
     }
 
-    public Logger(String tag) {
+    public Logger(String tag) throws IOException {
         this.tag = tag;
     }
 
     public void auth() throws IOException {
-        File file = new File("src/Logs/tag.log");
-        Thread thread = new Thread();
-        if (file.createNewFile()) {
-            System.out.println("Created!");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write("DATA: " + LocalDateTime.now() + " ");
-        writer.write("STREAM: " + thread.getName() + " ");
-        writer.write("TYPE: " + (Logger.Type.INFO) + " ");
-        writer.write("MESSAGE: " + "message");
+        writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Logger.Type.INFO) + " MESSAGE: " + "message");
         writer.close();
-
     }
 }
