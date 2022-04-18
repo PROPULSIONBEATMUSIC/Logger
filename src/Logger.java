@@ -3,9 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+
 public class Logger {
-    File file = new File("src/Logs/tag.log");
-    FileWriter writer = new FileWriter(file);
+
     String tag;
 
     public enum Type{
@@ -20,6 +20,11 @@ public class Logger {
     }
 
     public void auth() throws IOException {
+        File file = new File("src/Logs/tag.log");
+        FileWriter writer = new FileWriter(file);
+        if(file.exists()){
+            writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Logger.Type.INFO) + " MESSAGE: " + "message" + "\n");
+        }
         writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Logger.Type.INFO) + " MESSAGE: " + "message");
         writer.close();
     }
