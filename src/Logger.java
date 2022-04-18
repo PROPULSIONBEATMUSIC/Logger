@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Logger {
 
-    String tag;
+    final String tag;
 
     public enum Type{
         INFO,
@@ -15,7 +15,7 @@ public class Logger {
         ERROR
     }
 
-    public Logger(String tag) throws IOException {
+    public Logger(String tag) {
         this.tag = tag;
     }
 
