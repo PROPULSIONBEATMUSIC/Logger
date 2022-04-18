@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class Logger {
-    Thread thread = new Thread();
     String tag;
 
     public enum Type{
