@@ -25,7 +25,7 @@ public class Logger {
         if(file.exists()){
             writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Logger.Type.INFO) + " MESSAGE: " + "message" + "\n");
         }
-        writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Logger.Type.INFO) + " MESSAGE: " + "message");
+        writer.write("DATA: " + LocalDateTime.now() + " STREAM: " + Thread.currentThread() + " TYPE: " + (Type.DEBUG) + " MESSAGE: " + "message1");
         writer.close();
     }
 }
